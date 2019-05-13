@@ -3,15 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.2",
+    "@reach/router": "^1.2.1",
     "axios": "^0.18.0",
     "c3": "^0.7.0",
     "canvas-gauges": "^2.1.5",
+    "lodash": "^4.17.11",
     "react": "^16.8.6",
-    "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
     "react-grid-layout": "^0.16.6",
-    "react-reach": "^0.4.1",
     "react-scripts": "3.0.1",
+    "typeface-roboto": "^0.0.54",
     "vis": "^4.21.0"
   },
   "scripts": {
