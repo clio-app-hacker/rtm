@@ -26,13 +26,13 @@ import Typography from "@material-ui/core/Typography";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import ReportIcon from "@material-ui/icons/InsertChart";
 import SettingsIcon from "@material-ui/icons/Settings";
-import ReportDesignerIcon from "@material-ui/icons/FlipToFront";
-import DashboardDesignerIcon from "@material-ui/icons/Web";
 import ResourceCenterIcon from "@material-ui/icons/PlaylistAdd";
 import SchedulerIcon from "@material-ui/icons/Schedule";
 // components
 import Dashboards from "./components/Dashboards";
+import DashboardViewer from "./components/dashboard/DashboardViewer";
 import Reports from "./components/Reports";
+import ReportViewer from "./components/report/ReportViewer";
 import DashboardDesigner from "./components/DashboardDesigner";
 import ReportDesigner from "./components/ReportDesigner";
 import ResourceCenter from "./components/ResourceCenter";
@@ -189,23 +189,7 @@ class App extends React.Component {
                   <ListItemText primary="Dashboards" />
                 </ListItem>
               </Link>
-              <Link to="dashboardDesigner">
-                <ListItem button key="Dashboard Designer">
-                  <ListItemIcon>
-                    <DashboardDesignerIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Dashboard Designer" />
-                </ListItem>
-              </Link>
             </List>
-            <Link to="reportDesigner">
-              <ListItem button key="Report Designer">
-                <ListItemIcon>
-                  <ReportDesignerIcon />
-                </ListItemIcon>
-                <ListItemText primary="Report Designer" />
-              </ListItem>
-            </Link>
             <Link to="resourceCenter">
               <ListItem button key="Resource Center">
                 <ListItemIcon>
@@ -238,7 +222,9 @@ class App extends React.Component {
             <div className={classes.toolbar} />
             <Router>
               <Dashboards path="/dashboards" />
+              <DashboardViewer path="/dashboards/dashboard/:id" />
               <Reports path="/reports" />
+              <ReportViewer path="/reports/report/:id" />
               <DashboardDesigner path="/dashboardDesigner" />
               <ReportDesigner path="/reportDesigner" />
               <ResourceCenter path="/resourceCenter" />

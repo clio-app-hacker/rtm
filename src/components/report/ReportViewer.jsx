@@ -1,19 +1,24 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
-// import classNames from "classnames";
+//import classNames from 'classnames';
 import { withStyles } from "@material-ui/core/styles";
-import Dashboard from "./dashboard/Dashboard";
 
 const styles = theme => ({
   root: {
     display: "flex",
+    backgroundColor: "red",
   },
 });
 
-class Dashboards extends Component {
+class ReportViewer extends Component {
   constructor(props) {
     super(props);
-    this.state = { userName: undefined };
+    this.state = { id: this.props.id };
+    this.fetch();
+  }
+
+  fetch() {
+    console.log(this.state.id);
   }
 
   render() {
@@ -21,16 +26,16 @@ class Dashboards extends Component {
 
     return (
       <Fragment>
-        <div className={classes.root}>Dashboards Component</div>
-        <Dashboard />
+        <div className={classes.root}>ReportViewer Component</div>
       </Fragment>
     );
   }
 }
 
-Dashboards.propTypes = {
+ReportViewer.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(Dashboards);
+export default withStyles(styles, { withTheme: true })(ReportViewer);

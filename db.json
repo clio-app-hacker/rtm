@@ -1,0 +1,21 @@
+{
+  "reports": [
+    {
+      "id": 1,
+      "name": "Report One"
+    }
+  ],
+  "dashboards": [
+    {
+      "id": 1,
+      "name": "dashboard One",
+      "reports": [1],
+      "layout": "",
+      "title": "My First Dashboard"
+    }
+  ],
+  "resources": {
+    "reports": [],
+    "dashboards": []
+  }
+}
