@@ -1,14 +1,13 @@
-import axios from 'axios';
-
 const axios = require('axios');
 
-const ApiServer = {
-
-    get: async (url) => {
+const ApiService = {
+    get: async function (url) {
         console.log("ApiServer.get: ", url);
         let result = await axios.get(url);
         return result;
     }
 };
 
-export default { ApiServer };
+export { ApiService };
+
+
