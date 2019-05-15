@@ -74,7 +74,6 @@ const styles = theme => ({
     whiteSpace: "nowrap",
   },
   drawerOpen: {
-    background: "#E6F0F3",
     width: drawerWidth,
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
@@ -82,7 +81,6 @@ const styles = theme => ({
     }),
   },
   drawerClose: {
-    background: "#E6F0F3",
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,

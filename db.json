@@ -2,7 +2,51 @@
   "reports": [
     {
       "id": 1,
-      "name": "Report One"
+      "name": "Report One",
+      "description": "My first report",
+      "content": {
+        "title": "",
+        "subTitle": "",
+        "footer": ""
+      },
+      "visualization": {
+        "size": "fixed"
+      },
+      "data": {}
+    },
+    {
+      "id": 2,
+      "name": "Report Two",
+      "description": "My second report",
+      "content": {
+        "title": "",
+        "subTitle": "",
+        "footer": ""
+      },
+      "visualization": {
+        "size": {
+          "width": 500,
+          "height": 500
+        }
+      },
+      "data": {}
+    },
+    {
+      "id": 3,
+      "name": "Report Three",
+      "description": "My thrird report",
+      "content": {
+        "title": "",
+        "subTitle": "",
+        "footer": ""
+      },
+      "visualization": {
+        "size": {
+          "width": 500,
+          "height": 500
+        }
+      },
+      "data": {}
     }
   ],
   "dashboards": [

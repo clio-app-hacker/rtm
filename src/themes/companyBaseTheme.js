@@ -14,7 +14,7 @@ const theme = createMuiTheme({
 // dark them
 // const theme = createMuiTheme({
 //   palette: {
-//     type: 'ligdarkht',
+//     type: 'dark',
 //   },
 // });
 
