@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 // import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Dashboard from "./dashboard/Dashboard";
+import ActionTable from "./ActionTable";
+import { DBService } from "../services/dbService";
 
 const styles = theme => ({
   root: {
@@ -13,16 +15,39 @@ const styles = theme => ({
 class Dashboards extends Component {
   constructor(props) {
     super(props);
-    this.state = { userName: undefined };
+    this.state = {
+      data: [],
+      isLoading: false,
+    };
+  }
+
+  componentDidMount() {
+    this.getData().then(result => {
+      console.log("Result:", result);
+    });
+  }
+
+  async getData() {
+    console.log(this.state.id);
+    this.setState({
+      isLoading: true,
+    });
+    const result = await DBService.get(`/rtm/dashboards`);
+    this.setState({
+      data: result.data,
+      isLoading: false,
+    });
+    return result;
   }
 
   render() {
+    const { data } = this.state;
     const { classes } = this.props;
+    const headers = ["id", "name", "description"];
 
     return (
       <Fragment>
-        <div className={classes.root}>Dashboards Component</div>
-        <Dashboard />
+        <ActionTable headers={headers} rows={data} />
       </Fragment>
     );
   }

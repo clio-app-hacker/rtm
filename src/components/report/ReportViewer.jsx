@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 //import classNames from 'classnames';
 import { withStyles } from "@material-ui/core/styles";
-import { ApiService } from "../../services/apiService";
+import { DBService } from "../../services/dbService";
 
 const styles = theme => ({
   root: {
@@ -29,7 +29,7 @@ class ReportViewer extends Component {
     this.setState({
       isLoading: true,
     });
-    const result = await ApiService.get(`/api/reports/${this.state.id}`);
+    const result = await DBService.get(`/api/reports/${this.state.id}`);
     this.setState({
       data: result.data,
       isLoading: false,

@@ -1,5 +1,5 @@
 import React from "react";
-import { Router, Link } from "@reach/router";
+import { Link } from "@reach/router";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
@@ -22,22 +22,18 @@ import ListItemText from "@material-ui/core/ListItemText";
 import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import Button from '@material-ui/core/Button';
+
 // icons
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import ReportIcon from "@material-ui/icons/InsertChart";
 import SettingsIcon from "@material-ui/icons/Settings";
 import ResourceCenterIcon from "@material-ui/icons/PlaylistAdd";
 import SchedulerIcon from "@material-ui/icons/Schedule";
-// components
-import Dashboards from "./components/Dashboards";
-import DashboardViewer from "./components/dashboard/DashboardViewer";
-import Reports from "./components/Reports";
-import ReportViewer from "./components/report/ReportViewer";
-import DashboardDesigner from "./components/DashboardDesigner";
-import ReportDesigner from "./components/ReportDesigner";
-import ResourceCenter from "./components/ResourceCenter";
-import Scheduler from "./components/Scheduler";
-import Settings from "./components/Settings";
+
+import Routes from "./routes";
+
+const axios = require('axios');
 
 const drawerWidth = 240;
 
@@ -61,9 +57,15 @@ const styles = theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
+  grow: {
+    flexGrow: 1,
+  },
   menuButton: {
     marginLeft: 12,
     marginRight: 36,
+  },
+  loginButton: {
+    marginRight: 20,
   },
   hide: {
     display: "none",
@@ -105,6 +107,9 @@ const styles = theme => ({
 });
 
 class App extends React.Component {
+  isAuthenticated = false;
+  isLoggedIn = true;
+
   state = {
     open: false,
   };
@@ -117,6 +122,14 @@ class App extends React.Component {
     this.setState({ open: false });
   };
 
+  componentDidMount() {
+    // axios.get("/api/v4/matters").then(result => {
+    //   console.log("result", result);
+    // });
+    axios.get("/oauth").then((e) => {
+      console.log("error", e);
+    });
+  }
   render() {
     const { classes, theme } = this.props;
 
@@ -141,9 +154,10 @@ class App extends React.Component {
               >
                 <MenuIcon />
               </IconButton>
-              <Typography variant="h6" color="inherit" noWrap>
+              <Typography variant="h6" color="inherit" noWrap className={classes.grow}>
                 Reports That Matter
               </Typography>
+              <Button color="inherit" className={classes.loginButton}>Logout</Button>
             </Toolbar>
           </AppBar>
           <Drawer
@@ -165,8 +179,8 @@ class App extends React.Component {
                 {theme.direction === "rtl" ? (
                   <ChevronRightIcon />
                 ) : (
-                  <ChevronLeftIcon />
-                )}
+                    <ChevronLeftIcon />
+                  )}
               </IconButton>
             </div>
             <Divider />
@@ -218,17 +232,7 @@ class App extends React.Component {
           </Drawer>
           <main className={classes.content}>
             <div className={classes.toolbar} />
-            <Router>
-              <Dashboards path="/dashboards" />
-              <DashboardViewer path="/dashboards/dashboard/:id" />
-              <Reports path="/reports" />
-              <ReportViewer path="/reports/report/:id" />
-              <DashboardDesigner path="/dashboardDesigner" />
-              <ReportDesigner path="/reportDesigner" />
-              <ResourceCenter path="/resourceCenter" />
-              <Scheduler path="/scheduler" />
-              <Settings path="/settings" />
-            </Router>
+            <Routes />
           </main>
         </div>
       </MuiThemeProvider>

@@ -4,6 +4,7 @@
       "id": 1,
       "name": "Report One",
       "description": "My first report",
+      "actions": "delete,edit",
       "content": {
         "title": "",
         "subTitle": "",
@@ -18,6 +19,7 @@
       "id": 2,
       "name": "Report Two",
       "description": "My second report",
+      "actions": "delete,edit",
       "content": {
         "title": "",
         "subTitle": "",
@@ -35,6 +37,79 @@
       "id": 3,
       "name": "Report Three",
       "description": "My thrird report",
+      "actions": "",
+      "content": {
+        "title": "",
+        "subTitle": "",
+        "footer": ""
+      },
+      "visualization": {
+        "size": {
+          "width": 500,
+          "height": 500
+        }
+      },
+      "data": {}
+    },
+    {
+      "id": 4,
+      "name": "Report 4",
+      "description": "My 4th report",
+      "actions": "",
+      "content": {
+        "title": "",
+        "subTitle": "",
+        "footer": ""
+      },
+      "visualization": {
+        "size": {
+          "width": 500,
+          "height": 500
+        }
+      },
+      "data": {}
+    },
+    {
+      "id": 5,
+      "name": "Report 5",
+      "description": "My 5th report",
+      "actions": "",
+      "content": {
+        "title": "",
+        "subTitle": "",
+        "footer": ""
+      },
+      "visualization": {
+        "size": {
+          "width": 500,
+          "height": 500
+        }
+      },
+      "data": {}
+    },
+    {
+      "id": 6,
+      "name": "Report 6",
+      "description": "My 6th report",
+      "actions": "",
+      "content": {
+        "title": "",
+        "subTitle": "",
+        "footer": ""
+      },
+      "visualization": {
+        "size": {
+          "width": 500,
+          "height": 500
+        }
+      },
+      "data": {}
+    },
+    {
+      "id": 7,
+      "name": "Report 7",
+      "description": "My 7th report",
+      "actions": "",
       "content": {
         "title": "",
         "subTitle": "",
@@ -53,9 +128,32 @@
     {
       "id": 1,
       "name": "dashboard One",
-      "reports": [1],
+      "description": " My First Dashboard",
+      "reports": [
+        1
+      ],
       "layout": "",
       "title": "My First Dashboard"
+    },
+    {
+      "id": 2,
+      "name": "dashboard two",
+      "description": " My Second Dashboard",
+      "reports": [
+        1
+      ],
+      "layout": "",
+      "title": "My Second Dashboard"
+    },
+    {
+      "id": 3,
+      "name": "dashboard three",
+      "description": " My Third Dashboard",
+      "reports": [
+        1
+      ],
+      "layout": "",
+      "title": "My Third Dashboard"
     }
   ],
   "resources": {

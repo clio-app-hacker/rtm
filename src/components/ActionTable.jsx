@@ -7,6 +7,9 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import { IconButton } from "@material-ui/core";
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 
 const CustomTableCell = withStyles(theme => ({
   head: {
@@ -33,7 +36,22 @@ const styles = theme => ({
     },
   },
 });
+function getActionIcons(actions) {
+  console.log("getActionIcons: ", actions);
+  const arr = actions.split(',');
+  console.log("arr.length: ", arr.length);
 
+  return (
+    <React.Fragment>
+      {arr.length && arr.map((action, index) => {
+        console.log("action => ", action);
+        return (<IconButton  key={index} aria-label="Delete">
+          <DeleteIcon />
+        </IconButton>)
+      })}
+    </React.Fragment>
+  )
+}
 function ActionTable(props) {
   const { classes, headers, rows } = props;
 
@@ -42,17 +60,26 @@ function ActionTable(props) {
       <Table className={classes.table}>
         <TableHead>
           <TableRow key={0}>
-            {headers.map(header => (
-              <CustomTableCell>{header}</CustomTableCell>
+            {headers.map((header, index) => (
+              <CustomTableCell key={index}>{header}</CustomTableCell>
             ))}
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map(row => (
             <TableRow className={classes.row} key={row.id}>
-              {headers.map(header => (
-                <CustomTableCell>{row[header]}</CustomTableCell>
-              ))}
+              {headers.map((header, index) => {
+                if (header === "actions" && row[header].length > 0) {
+                  return (
+                    <CustomTableCell key={index}>
+                      {getActionIcons(row.actions)}
+                    </CustomTableCell>
+                  );
+
+                } else {
+                  return (<CustomTableCell key={index}>{row[header]}</CustomTableCell>);
+                }
+              })}
             </TableRow>
           ))}
         </TableBody>

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 //import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import ActionTable from "./ActionTable";
-import { ApiService } from "../services/apiService";
+import { DBService } from "../services/dbService";
 
 const styles = theme => ({
   root: {
@@ -31,7 +31,7 @@ class Reports extends Component {
     this.setState({
       isLoading: true,
     });
-    const result = await ApiService.get(`/api/reports`);
+    const result = await DBService.get(`/rtm/reports`);
     this.setState({
       data: result.data,
       isLoading: false,
@@ -42,7 +42,7 @@ class Reports extends Component {
   render() {
     const { data } = this.state;
     const { classes } = this.props;
-    const headers = ["id", "name", "description"];
+    const headers = ["id", "name", "description", "actions"];
     return (
       <Fragment>
         <ActionTable headers={headers} rows={data} />

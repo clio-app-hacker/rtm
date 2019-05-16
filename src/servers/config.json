@@ -1,0 +1,10 @@
+{
+  "proxyPort": 3001,
+  "id": "kIKdExnFc7anqLK1KxDJMZxBxXgGdPhiFm66Z5gd",
+  "secrect": "zDVFhAOLIfr6rIm3wWMxRyO8MPGJRquObCqjjUuU",
+  "tokenHost": "https://app.clio.com",
+  "apiHost": "https://app.clio.com",
+  "dbHost": "http://localhost:3002",
+  "uiHost": "http://localhost:3000",
+  "redirectUri": "http://localhost:3001/oauth/response"
+}

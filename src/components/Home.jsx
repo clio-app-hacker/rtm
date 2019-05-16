@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 //import classNames from 'classnames';
 import { withStyles } from "@material-ui/core/styles";
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   root: {
@@ -20,7 +21,9 @@ class Home extends Component {
 
     return (
       <Fragment>
-        <div className={classes.root}>Home Component</div>
+        <Button>
+          <a href="http://localhost:3001/oauth">Authenticate with CLIO</a>
+        </Button>
       </Fragment>
     );
   }

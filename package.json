@@ -10,14 +10,18 @@
     "c3": "^0.7.0",
     "canvas-gauges": "^2.1.5",
     "express": "^4.16.4",
+    "express-session": "^1.16.1",
     "http-proxy-middleware": "^0.19.1",
     "json-server": "^0.14.2",
     "lodash": "^4.17.11",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-grid-layout": "^0.16.6",
+    "react-loadable": "^5.5.0",
     "react-scripts": "3.0.1",
+    "simple-oauth2": "^2.2.1",
     "typeface-roboto": "^0.0.54",
+    "uuidv4": "^4.0.0",
     "vis": "^4.21.0"
   },
   "scripts": {
@@ -26,8 +30,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "db": "json-server --watch db.json --routes routes.json --port 3002",
-    "proxy": "node ./src/servers/proxyServer.js",
-    "all": "yarn start & yarn db & yarn proxy"
+    "server": "node ./src/servers/myServer.js",
+    "all": "yarn start & yarn db & yarn server"
   },
   "eslintConfig": {
     "extends": "react-app"
