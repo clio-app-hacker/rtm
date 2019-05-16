@@ -31,7 +31,8 @@
     "eject": "react-scripts eject",
     "db": "json-server --watch db.json --routes routes.json --port 3002",
     "server": "node ./src/servers/myServer.js",
-    "all": "yarn start & yarn db & yarn server"
+    "all": "yarn start & yarn db & yarn server & open http://localhost:3001",
+    "kill": "pkill node"
   },
   "eslintConfig": {
     "extends": "react-app"
