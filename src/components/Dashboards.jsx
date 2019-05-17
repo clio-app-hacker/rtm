@@ -2,7 +2,6 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 // import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
-import Dashboard from "./dashboard/Dashboard";
 import ActionTable from "./ActionTable";
 import { DBService } from "../services/dbService";
 
@@ -28,7 +27,6 @@ class Dashboards extends Component {
   }
 
   async getData() {
-    console.log(this.state.id);
     this.setState({
       isLoading: true,
     });
@@ -42,8 +40,7 @@ class Dashboards extends Component {
 
   render() {
     const { data } = this.state;
-    const { classes } = this.props;
-    const headers = ["id", "name", "description"];
+    const headers = ["id", "name", "description", "actions"];
 
     return (
       <Fragment>

@@ -41,7 +41,6 @@ class Reports extends Component {
 
   render() {
     const { data } = this.state;
-    const { classes } = this.props;
     const headers = ["id", "name", "description", "actions"];
     return (
       <Fragment>

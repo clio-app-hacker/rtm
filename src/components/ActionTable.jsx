@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@reach/router";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -10,6 +11,8 @@ import Paper from "@material-ui/core/Paper";
 import { IconButton } from "@material-ui/core";
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
+import DefaultIcon from '@material-ui/icons/QuestionAnswer';
+import ShareIcon from '@material-ui/icons/Share';
 
 const CustomTableCell = withStyles(theme => ({
   head: {
@@ -36,17 +39,32 @@ const styles = theme => ({
     },
   },
 });
-function getActionIcons(actions) {
-  console.log("getActionIcons: ", actions);
-  const arr = actions.split(',');
+
+function getIconByName(name) {
+  name = name.toLowerCase();
+  switch (name) {
+    case "delete":
+      return <DeleteIcon />
+    case "edit":
+      return <EditIcon />
+    case "share":
+      return <ShareIcon />
+    default:
+      return <DefaultIcon />
+  }
+}
+
+function getActionIcons(row) {
+  console.log("getActionIcons: ", row.actions);
+  const arr = row.actions.split(',');
   console.log("arr.length: ", arr.length);
 
   return (
     <React.Fragment>
       {arr.length && arr.map((action, index) => {
-        console.log("action => ", action);
-        return (<IconButton key={index} aria-label="Delete">
-          <DeleteIcon />
+        console.log("action => button", action);
+        return (<IconButton key={index} aria-label={action} component={Link} to={`${row.path}/${action.toLowerCase()}/${row.id}`}>
+          {getIconByName(action)}
         </IconButton>)
       })}
     </React.Fragment>
@@ -72,7 +90,7 @@ function ActionTable(props) {
                 if (header === "actions" && row[header].length > 0) {
                   return (
                     <CustomTableCell align="right" colSpan={1} key={index}>
-                      {getActionIcons(row.actions)}
+                      {getActionIcons(row)}
                     </CustomTableCell>
                   );
 

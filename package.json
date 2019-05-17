@@ -32,6 +32,7 @@
     "db": "json-server --watch db.json --routes routes.json --port 3002",
     "server": "node ./src/servers/myServer.js",
     "all": "yarn start & yarn db & yarn server & open http://localhost:3001",
+    "restoreDB": "cp db.backup.json db.json",
     "kill": "pkill node"
   },
   "eslintConfig": {

@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 //import classNames from 'classnames';
 import { withStyles } from "@material-ui/core/styles";
 import { DBService } from "../../services/dbService";
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   root: {
     display: "flex",
-    backgroundColor: "red",
   },
 });
 
@@ -19,9 +19,6 @@ class ReportViewer extends Component {
       data: { name: "undefined" },
       isLoading: false,
     };
-    this.getData().then(result => {
-      console.log(result);
-    });
   }
 
   async getData() {
@@ -29,12 +26,38 @@ class ReportViewer extends Component {
     this.setState({
       isLoading: true,
     });
-    const result = await DBService.get(`/api/reports/${this.state.id}`);
-    this.setState({
-      data: result.data,
-      isLoading: false,
+    const result = await DBService.get(`/rtm/reports/${this.state.id}`);
+
+    return result;
+  }
+
+  async saveData() {
+    const result = await DBService.post(`/rtm/reports`, {
+      "name": "Report One",
+      "type": "Report",
+      "path": "/reports/report",
+      "description": "My first report",
+      "actions": "Edit,Share,Delete",
+      "content": {
+        "title": "",
+        "subTitle": "",
+        "footer": ""
+      },
+      "visualization": {
+        "size": "fixed"
+      },
+      "data": {}
     });
     return result;
+  }
+
+  componentDidMount() {
+    this.getData().then(result => {
+      this.setState({
+        data: result.data,
+        isLoading: false,
+      });
+    });
   }
 
   render() {
@@ -47,6 +70,7 @@ class ReportViewer extends Component {
     return (
       <Fragment>
         <div className={classes.root}>ReportViewer {data.name}</div>
+        <Button onClick={this.saveData}>Save Report</Button>
       </Fragment>
     );
   }

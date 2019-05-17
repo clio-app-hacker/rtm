@@ -8,6 +8,8 @@ import DashboardDesigner from "./components/DashboardDesigner";
 import ReportDesigner from "./components/ReportDesigner";
 import ResourceCenter from "./components/ResourceCenter";
 import Scheduler from "./components/Scheduler";
+import DeleteReport from "./components/report/DeleteReport";
+import DeleteDashboard from "./components/dashboard/DeleteDashboard";
 
 const AsyncDashboards = Loadable({
     loader: () => import("./components/Dashboards"),
@@ -29,8 +31,10 @@ const ProtectedRoutes = () => (
         <AsyncDashboards path="/dashboards" />
         <AsyncReports path="/reports" />
         <AsyncSettings path="/settings" />
-        <DashboardViewer path="/dashboards/dashboard/:id" />
-        <ReportViewer path="/reports/report/:id" />
+        <DashboardViewer path="/dashboards/dashboard/edit/:id" />
+        <ReportViewer path="/reports/report/edit/:id" />
+        <DeleteReport path="/reports/report/delete/:id" />
+        <DeleteDashboard path="/dashboards/dashboard/delete/:id" />
         <DashboardDesigner path="/dashboardDesigner" />
         <ReportDesigner path="/reportDesigner" />
         <ResourceCenter path="/resourceCenter" />

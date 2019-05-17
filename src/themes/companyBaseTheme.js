@@ -2,6 +2,9 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import * as colors from '@material-ui/core/colors';
 
 const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+  },
   palette: {
     primary: colors.blue,
     secondary: colors.green,

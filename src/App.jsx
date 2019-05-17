@@ -33,8 +33,6 @@ import SchedulerIcon from "@material-ui/icons/Schedule";
 
 import Routes from "./routes";
 
-const axios = require('axios');
-
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -123,12 +121,6 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    // axios.get("/api/v4/matters").then(result => {
-    //   console.log("result", result);
-    // });
-    axios.get("/oauth").then((e) => {
-      console.log("error", e);
-    });
   }
   render() {
     const { classes, theme } = this.props;
