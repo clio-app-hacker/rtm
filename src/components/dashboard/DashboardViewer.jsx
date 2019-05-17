@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 //import classNames from 'classnames';
 import { withStyles } from "@material-ui/core/styles";
 import { DBService } from "../../services/dbService";
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   root: {
@@ -31,6 +32,22 @@ class DashboardViewer extends Component {
     return result;
   }
 
+  async saveData() {
+    const result = await DBService.post(`/rtm/dashboards`, {
+      "name": "dashboard three",
+      "actions": "Edit,Delete",
+      "type": "Dashboard",
+      "path": "/dashboards/dashboard",
+      "description": " My Third Dashboard",
+      "reports": [
+        1
+      ],
+      "layout": "",
+      "title": "My Third Dashboard"
+    });
+    return result;
+  }
+
   componentDidMount() {
     this.getData().then(result => {
       this.setState({
@@ -39,7 +56,7 @@ class DashboardViewer extends Component {
       });
     });
   }
-  
+
   render() {
     const { classes } = this.props;
     const { data, isLoading } = this.state;
@@ -50,6 +67,8 @@ class DashboardViewer extends Component {
     return (
       <Fragment>
         <div className={classes.root}>DashboardViewer {data.name}</div>
+        <Button onClick={this.saveData}>Save Dashboard</Button>
+
       </Fragment>
     );
   }
