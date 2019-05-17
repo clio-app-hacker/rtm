@@ -31,7 +31,7 @@
     "eject": "react-scripts eject",
     "db": "json-server --watch db.json --routes routes.json --port 3002",
     "server": "node ./src/servers/myServer.js",
-    "all": "yarn start & yarn db & yarn server & open http://localhost:3001",
+    "all": "open http://localhost:3001  & yarn start & yarn db & yarn server ",
     "restoreDB": "cp db.backup.json db.json",
     "kill": "pkill node"
   },

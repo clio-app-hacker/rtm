@@ -136,6 +136,23 @@
         }
       },
       "data": {}
+    },
+    {
+      "name": "Report One",
+      "type": "Report",
+      "path": "/reports/report",
+      "description": "My first report",
+      "actions": "Edit,Share,Delete",
+      "content": {
+        "title": "",
+        "subTitle": "",
+        "footer": ""
+      },
+      "visualization": {
+        "size": "fixed"
+      },
+      "data": {},
+      "id": 8
     }
   ],
   "dashboards": [
