@@ -157,7 +157,7 @@ class App extends React.Component {
               <Typography variant="h6" color="inherit" noWrap className={classes.grow}>
                 Reports That Matter
               </Typography>
-              <Button color="inherit" className={classes.loginButton}>Logout</Button>
+              <Button color="inherit" className={classes.loginButton} component={Link} to="/">Logout</Button>
             </Toolbar>
           </AppBar>
           <Drawer

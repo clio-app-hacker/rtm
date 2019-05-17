@@ -45,7 +45,7 @@ function getActionIcons(actions) {
     <React.Fragment>
       {arr.length && arr.map((action, index) => {
         console.log("action => ", action);
-        return (<IconButton  key={index} aria-label="Delete">
+        return (<IconButton key={index} aria-label="Delete">
           <DeleteIcon />
         </IconButton>)
       })}
@@ -71,7 +71,7 @@ function ActionTable(props) {
               {headers.map((header, index) => {
                 if (header === "actions" && row[header].length > 0) {
                   return (
-                    <CustomTableCell key={index}>
+                    <CustomTableCell align="right" colSpan={1} key={index}>
                       {getActionIcons(row.actions)}
                     </CustomTableCell>
                   );
