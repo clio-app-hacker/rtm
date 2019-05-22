@@ -28,7 +28,7 @@ app.use(session({
         console.log('Inside the session middleware: ', req.sessionID)
         return uuid() // use UUIDs for session IDs
     },
-    secret: 'keyboard cat',
+    secret: 'falorekceb',
     resave: false,
     saveUninitialized: true
 }));
@@ -98,9 +98,9 @@ app.get('/api/v4/*', async (req, res) => {
     // _parsedOriginalUrl.path -> comes from express-session
     const result = await ApiService.get(req._parsedOriginalUrl.path);
     // console.log("API Server result:", result)
-    let json = JSON.stringify(result.data.data, null, 2);
+    // let json = JSON.stringify(result.data.data, null, 2);
     // console.log("Result:", json);
-    res.send(result.data.data);
+    res.send(result.data);
 });
 
 app.use(

@@ -136,23 +136,6 @@
         }
       },
       "data": {}
-    },
-    {
-      "name": "Report One",
-      "type": "Report",
-      "path": "/reports/report",
-      "description": "My first report",
-      "actions": "Edit,Share,Delete",
-      "content": {
-        "title": "",
-        "subTitle": "",
-        "footer": ""
-      },
-      "visualization": {
-        "size": "fixed"
-      },
-      "data": {},
-      "id": 8
     }
   ],
   "dashboards": [
@@ -196,8 +179,53 @@
       "title": "My Third Dashboard"
     }
   ],
+  "licenses": [
+    {
+      "userId": "1",
+      "ipAddress": "123.34.104.12",
+      "firstName": "John",
+      "lastName": "Doe",
+      "lidenseUUID": "e0b0fabf-68ce-4a35-aba1-5e186b54b576",
+      "type": "basic"
+    }
+  ],
   "resources": {
-    "reports": [],
-    "dashboards": []
+    "reports": [
+      {
+        "id": 8,
+        "name": "Common Report",
+        "description": "A common report",
+        "type": "Report",
+        "path": "/reports/report",
+        "actions": "Delete",
+        "content": {
+          "title": "",
+          "subTitle": "",
+          "footer": ""
+        },
+        "visualization": {
+          "size": {
+            "width": 500,
+            "height": 500
+          }
+        },
+        "data": {}
+      }
+    ],
+    "dashboards": [
+      {
+        "id": 4,
+        "name": "dashboard four",
+        "actions": "Edit,Delete",
+        "type": "Dashboard",
+        "path": "/dashboards/dashboard",
+        "description": "Common Dashboard",
+        "reports": [
+          8
+        ],
+        "layout": "",
+        "title": "Common Dashboard"
+      }
+    ]
   }
 }

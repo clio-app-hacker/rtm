@@ -20,4 +20,4 @@ const ApiService = {
     }
 };
 
-module.exports=  ApiService;
+module.exports = ApiService;

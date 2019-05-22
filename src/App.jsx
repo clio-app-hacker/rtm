@@ -23,6 +23,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from '@material-ui/core/Button';
+import SignIn from './components/SignIn';
 
 // icons
 import DashboardIcon from "@material-ui/icons/Dashboard";
@@ -30,6 +31,7 @@ import ReportIcon from "@material-ui/icons/InsertChart";
 import SettingsIcon from "@material-ui/icons/Settings";
 import ResourceCenterIcon from "@material-ui/icons/PlaylistAdd";
 import SchedulerIcon from "@material-ui/icons/Schedule";
+import TestIcon from "@material-ui/icons/Apps";
 
 import Routes from "./routes";
 
@@ -105,7 +107,8 @@ const styles = theme => ({
 });
 
 class App extends React.Component {
-  isAuthenticated = false;
+  isLoggedIn = true; 
+  isAuthenticated = true;
   isLoggedIn = true;
 
   state = {
@@ -122,10 +125,10 @@ class App extends React.Component {
 
   componentDidMount() {
   }
+
   render() {
     const { classes, theme } = this.props;
-
-    return (
+    return (this.isLoggedIn ? (
       <MuiThemeProvider theme={companyBaseTheme}>
         <div className={classes.root}>
           <CssBaseline />
@@ -210,6 +213,14 @@ class App extends React.Component {
                 <ListItemText primary="Scheduler" />
               </ListItem>
             </Link>
+            <Link to="apiTest">
+              <ListItem button key="API Test">
+                <ListItemIcon>
+                  <TestIcon />
+                </ListItemIcon>
+                <ListItemText primary="API Test" />
+              </ListItem>
+            </Link>
             <Divider />
             <List>
               <Link to="settings">
@@ -228,7 +239,9 @@ class App extends React.Component {
           </main>
         </div>
       </MuiThemeProvider>
-    );
+    ) : (
+        <SignIn />
+      ));
   }
 }
 

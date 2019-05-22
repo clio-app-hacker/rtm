@@ -10,6 +10,7 @@ import ResourceCenter from "./components/ResourceCenter";
 import Scheduler from "./components/Scheduler";
 import DeleteReport from "./components/report/DeleteReport";
 import DeleteDashboard from "./components/dashboard/DeleteDashboard";
+import VirtualizedTable from "./components/VirtualizedTable";
 
 const AsyncDashboards = Loadable({
     loader: () => import("./components/Dashboards"),
@@ -39,6 +40,7 @@ const ProtectedRoutes = () => (
         <ReportDesigner path="/reportDesigner" />
         <ResourceCenter path="/resourceCenter" />
         <Scheduler path="/scheduler" />
+        <VirtualizedTable path="/apiTest" />
     </Router>
 );
 

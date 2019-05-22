@@ -3,7 +3,6 @@ import React, {
 } from 'react';
 import { Redirect } from "@reach/router";
 import { DBService } from "../../services/dbService";
-
 class DeleteReport extends Component {
 
     constructor(props) {

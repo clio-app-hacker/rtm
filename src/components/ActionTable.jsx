@@ -37,6 +37,7 @@ const styles = theme => ({
     "&:nth-of-type(odd)": {
       backgroundColor: theme.palette.background.default,
     },
+    maxHeight: 10
   },
 });
 
