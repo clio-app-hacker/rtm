@@ -35,6 +35,11 @@ import TestIcon from "@material-ui/icons/Apps";
 
 import Routes from "./routes";
 
+import { Provider as ReduxProvider } from "react-redux";
+import configureStore from "./redux/store";
+
+const reduxStore = configureStore(window.REDUX_INITIAL_DATA);
+
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -107,9 +112,8 @@ const styles = theme => ({
 });
 
 class App extends React.Component {
-  isLoggedIn = true; 
+  isLoggedIn = false;
   isAuthenticated = true;
-  isLoggedIn = true;
 
   state = {
     open: false,
@@ -129,7 +133,8 @@ class App extends React.Component {
   render() {
     const { classes, theme } = this.props;
     return (this.isLoggedIn ? (
-      <MuiThemeProvider theme={companyBaseTheme}>
+
+        <MuiThemeProvider theme={companyBaseTheme}>
         <div className={classes.root}>
           <CssBaseline />
           <AppBar
@@ -239,7 +244,7 @@ class App extends React.Component {
           </main>
         </div>
       </MuiThemeProvider>
-    ) : (
+      ) : (
         <SignIn />
       ));
   }

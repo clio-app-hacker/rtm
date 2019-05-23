@@ -1,4 +1,10 @@
 {
+  "users": [
+    {
+      "email": "demo@clio.com",
+      "password": "testtest"
+    }
+  ],
   "reports": [
     {
       "id": 1,

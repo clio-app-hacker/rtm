@@ -2,8 +2,9 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 //import classNames from 'classnames';
 import { withStyles } from "@material-ui/core/styles";
-import { DBService } from "../../services/dbService";
 import Button from '@material-ui/core/Button';
+
+const DBService = require("../../services/dbService");
 
 const styles = theme => ({
   root: {

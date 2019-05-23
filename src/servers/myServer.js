@@ -4,6 +4,8 @@ const config = require('./config.json');
 const uuid = require('uuidv4');
 const session = require('express-session');
 const ApiService = require('../services/apiService');
+const DBService = require('../services/dbService');
+
 /**
  * use express to handle incomming request
  * use simple-oauth2 for oauth
@@ -101,6 +103,18 @@ app.get('/api/v4/*', async (req, res) => {
     // let json = JSON.stringify(result.data.data, null, 2);
     // console.log("Result:", json);
     res.send(result.data);
+});
+
+app.get('/login', async (req, res) => {
+    console.log("Request:", req);
+
+    const email = req.query.email;
+    const password = req.query.password;
+
+    // _parsedOriginalUrl.path -> comes from express-session
+    const result = await DBService.authenticateUser(email, password);
+
+    res.send(result);
 });
 
 app.use(

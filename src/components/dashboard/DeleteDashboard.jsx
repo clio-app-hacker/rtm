@@ -2,7 +2,8 @@ import React, {
     Component,
 } from 'react';
 import { Redirect } from "@reach/router";
-import { DBService } from "../../services/dbService";
+
+const DBService = require("../../services/dbService");
 
 class DeleteDashboard extends Component {
 
