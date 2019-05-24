@@ -23,6 +23,8 @@
     "react-virtualized": "^9.21.1",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
+    "session-file-store": "^1.2.0",
+    "session-store": "^0.0.6",
     "simple-oauth2": "^2.2.1",
     "typeface-roboto": "^0.0.54",
     "uuidv4": "^4.0.0",
@@ -35,7 +37,7 @@
     "eject": "react-scripts eject",
     "db": "json-server --watch db.json --routes routes.json --port 3002",
     "server": "node ./src/servers/myServer.js",
-    "all": "open http://localhost:3001  & yarn start & yarn db & yarn server ",
+    "all": "yarn start & yarn db & yarn server ",
     "restoreDB": "cp db.backup.json db.json",
     "kill": "pkill node",
     "deploy": "react-scripts build && aws s3 cp build/ s3://dashboardreports.ca/ --recursive"

@@ -112,7 +112,7 @@ const styles = theme => ({
 });
 
 class App extends React.Component {
-  isLoggedIn = false;
+  isLoggedIn = true;
   isAuthenticated = true;
 
   state = {
