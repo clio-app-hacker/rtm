@@ -40,7 +40,8 @@
     "all": "yarn start & yarn db & yarn server ",
     "restoreDB": "cp db.backup.json db.json",
     "kill": "pkill node",
-    "deploy": "react-scripts build && aws s3 cp build/ s3://dashboardreports.ca/ --recursive"
+    "deploy": "react-scripts build && aws s3 cp build/ s3://report-zone.com/ --recursive",
+    "clears3": "aws s3 rm s3://report-zone.com/ --recursive"
   },
   "eslintConfig": {
     "extends": "react-app"

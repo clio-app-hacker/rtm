@@ -64,10 +64,11 @@ app.get('/oauth/response', async (req, res) => {
         // store the access token with the session
         req.session.clio_token = result;
         console.log("/oauth/response Session: ", req.session);
-        req.session.save();
+        req.session.save(() => {
+            // redirect to the application done page
+            res.redirect(`http://localhost:3001/reports`);
+        });
 
-        // redirect to the application done page
-        res.redirect(`http://localhost:3001/reports`);
 
     } catch (error) {
         console.log('Access Token Error', error);

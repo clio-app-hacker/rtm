@@ -1,7 +1,7 @@
 {
   "proxyPort": 3001,
-  "id": "kIKdExnFc7anqLK1KxDJMZxBxXgGdPhiFm66Z5gd",
-  "secrect": "zDVFhAOLIfr6rIm3wWMxRyO8MPGJRquObCqjjUuU",
+  "id": "YsgViEggjsPRulezgYOoWA6tCquMuKADSOYoreP3",
+  "secrect": "rV28eJApvnFSGITeRcXLPybHEQprgb1G5l5ErUSM",
   "tokenHost": "https://app.clio.com",
   "apiHost": "https://app.clio.com",
   "dbHost": "http://localhost:3002",
