@@ -2,7 +2,21 @@
   "users": [
     {
       "email": "demo@clio.com",
-      "password": "testtest"
+      "password": "testtest",
+      "id":"",
+      "license":{
+        "access":{
+          "trail":{
+            "expires": -1,
+            "extended": false
+          },
+          "level": "enterprise"
+        }
+      },
+      "features":[
+        "guide",
+        "tracking"
+      ]
     }
   ],
   "reports": [
